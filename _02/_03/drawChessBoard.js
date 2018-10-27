@@ -24,8 +24,8 @@ const drawChessBoard = (num = 8) => {
 
     if (num < 2)
         return new Error('Board is too small');
-    // if (num % 2 != 0)
-    //     return new Error('Size must be even');
+    if (num % 2 != 0)
+        return new Error('Size must be even');
 
     for (let i = 1; i <= num; i++) {
         let boardRow = '';
