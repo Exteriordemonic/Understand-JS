@@ -46,8 +46,7 @@ const drawChessBoard = (num = 8) => {
     return board;
 }
 
-console.log(drawChessBoard());
-console.log(drawChessBoard());; //draw 8x8 board
+console.log(drawChessBoard()); //draw 8x8 board
 console.log(drawChessBoard(16)); //draw 16x16 board
 console.log(drawChessBoard(3)); //draw 4x4 board
 console.log(drawChessBoard(2)); // Smallest board what you can get 2x2
