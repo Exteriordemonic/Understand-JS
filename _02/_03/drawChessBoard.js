@@ -23,28 +23,33 @@ const drawChessBoard = (num = 8) => {
     let board = '';
 
     if (num < 2)
-        throw new Error('Board is too small');
+        return new Error('Board is too small');
+    if (num % 2 != 0)
+        return new Error('Size must be even');
 
     for (let i = 1; i <= num; i++) {
-
         let boardRow = '';
+
         while (boardRow.length < num) {
             if (i % 2 == 0)
                 boardRow += ' #';
             else
                 boardRow += '# ';
         }
+
         board += boardRow;
 
         if (i != num)
             board += '\n'
     }
+
     return board;
 }
 
 console.log(drawChessBoard());
 console.log(drawChessBoard());; //draw 8x8 board
 console.log(drawChessBoard(16)); //draw 16x16 board
-console.log(drawChessBoard(4)); //draw 4x4 board
+console.log(drawChessBoard(3)); //draw 4x4 board
 console.log(drawChessBoard(2)); // Smallest board what you can get 2x2
 console.log(drawChessBoard(1)); //Board is to small
+console.log(drawChessBoard(5)); //Size need to be eval
