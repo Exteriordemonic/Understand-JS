@@ -22,10 +22,11 @@
 const drawChessBoard = (num = 8) => {
     let board = '';
 
-    //minimum numer of rows is 2
-    for (let i = 1; i <= num && num >= 2; i++) {
+    if (num < 2)
+        throw new Error('Board is too small');
 
-        //create boardRow
+    for (let i = 1; i <= num; i++) {
+
         let boardRow = '';
         while (boardRow.length < num) {
             if (i % 2 == 0)
@@ -33,20 +34,17 @@ const drawChessBoard = (num = 8) => {
             else
                 boardRow += '# ';
         }
-
-        //push boradRow to Board
         board += boardRow;
 
-        //add new lane tag
         if (i != num)
             board += '\n'
     }
-    //Draw board
-    console.log(board.length > 2 ? board : 'Board is too small :(');
+    return board;
 }
 
-drawChessBoard(); //draw 8x8 board
-drawChessBoard(16) //draw 16x16 board
-drawChessBoard(4) //draw 4x4 board
-drawChessBoard(2) // Smallest board what you can get 2x2
-drawChessBoard(1) //Board is to small
+console.log(drawChessBoard());
+console.log(drawChessBoard());; //draw 8x8 board
+console.log(drawChessBoard(16)); //draw 16x16 board
+console.log(drawChessBoard(4)); //draw 4x4 board
+console.log(drawChessBoard(2)); // Smallest board what you can get 2x2
+console.log(drawChessBoard(1)); //Board is to small
